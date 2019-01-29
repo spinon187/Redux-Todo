@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {addNew, toggleComplete, deleteTask} from '../actions';
+import {addNew, toggleComplete, deleteTask, clearCompleted} from '../actions';
 
 class TodoList extends Component {
 
@@ -22,7 +22,12 @@ class TodoList extends Component {
 
     deleteTask = (e, id) => {
         e.preventDefault();
-        this.props.deleteTask(id)
+        this.props.deleteTask(id);
+    }
+
+    clearCompleted = (e, x) => {
+        e.preventDefault();
+        this.props.clearCompleted(x);
     }
 
     handleChanges = e => {
@@ -41,6 +46,7 @@ class TodoList extends Component {
                         onChange={this.handleChanges}
                     />
                     <button onClick={this.addNew}>Add Task</button>
+                    <button onClick={this.clearCompleted}>Clear Completed</button>
                 {/* </form> */}
                 <div>
                     {this.props.todos.map(task => (
@@ -61,4 +67,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, {addNew, toggleComplete, deleteTask})(TodoList);
+export default connect(mapStateToProps, {addNew, toggleComplete, deleteTask, clearCompleted})(TodoList);

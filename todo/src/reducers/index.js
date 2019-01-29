@@ -1,4 +1,4 @@
-import {ADD_NEW, TOGGLE_COMPLETE, DELETE_TASK} from '../actions';
+import {ADD_NEW, TOGGLE_COMPLETE, DELETE_TASK, CLEAR_COMPLETED} from '../actions';
 
 
 let sequenceId = 0;
@@ -31,6 +31,13 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 todos: state.todos.filter((task =>
                     action.payload !== task.id
+                ))
+            }
+        case CLEAR_COMPLETED:
+            return {
+                ...state,
+                todos: state.todos.filter((task =>
+                    action.payload !== task.completed
                 ))
             }
         default:
