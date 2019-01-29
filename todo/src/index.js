@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import { createStore } from 'redux';
 import {Provider} from 'react-redux';
+import todos from './reducers';
+import TodoList from './components/TodoList';
 
-const store = createStore(todoList);
+const store = createStore(todos);
 
 ReactDOM.render(
     <Provider store={store}>
-      <todoList />
+      <TodoList />
     </Provider>,
     document.getElementById('root')
   );
