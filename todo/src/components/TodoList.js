@@ -49,10 +49,10 @@ class TodoList extends Component {
                     <button onClick={this.clearCompleted}>Clear Completed</button>
                 {/* </form> */}
                 <div>
-                    {this.props.todos.map(task => (
-                        <div onClick={e => this.toggleComplete(e, task.id)} key={task.id} className={`${task.completed}`} >
+                    {this.props.todos.map((task, index) => (
+                        <div onClick={e => this.toggleComplete(e, index)} key={index} className={`${task.completed}`} >
                             <p>{task.value}</p>
-                            <button onClick={e => this.deleteTask(e, task.id)}>Delete Task</button>
+                            <button onClick={e => this.deleteTask(e, index)}>Delete Task</button>
                         </div>
                     ))}
                 </div>

@@ -10,7 +10,7 @@ export const addNew = taskName => {
         type: ADD_NEW,
         payload: {
             value: taskName,
-            id: sequenceId++,
+            // id: sequenceId++,
             completed: false
         }
     }
