@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { createStore } from 'redux';
 import {Provider} from 'react-redux';
-import todos from './reducers';
+import reducer from './reducers';
 import TodoList from './components/TodoList';
 
-const store = createStore(todos);
+const store = createStore(reducer);
 
 ReactDOM.render(
     <Provider store={store}>
