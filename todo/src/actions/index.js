@@ -1,9 +1,10 @@
 export const ADD_NEW = 'ADD_NEW';
 export const TOGGLE_COMPLETE = 'TOGGLE_COMPLETE';
+export const DELETE_TASK = 'DELETE_TASK';
 
 let sequenceId = 0;
 
-export function addNew(taskName){
+export const addNew = taskName => {
     return {
         type: ADD_NEW,
         payload: {
@@ -17,6 +18,13 @@ export function addNew(taskName){
 export const toggleComplete = id => {
     return {
         type: TOGGLE_COMPLETE,
+        payload: id
+    }
+}
+
+export const deleteTask = id => {
+    return {
+        type: DELETE_TASK,
         payload: id
     }
 }
